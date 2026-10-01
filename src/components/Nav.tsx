@@ -5,7 +5,7 @@ import { btnPrimary, btnQuiet, wrap } from './ui'
 const LINKS = [
   ['#problema', 'Problema'],
   ['#cum', 'Cum merge'],
-  ['#manager', 'Pentru manageri'],
+  ['#manager', 'Pentru tine'],
   ['#functii', 'Funcții'],
   ['#preturi', 'Prețuri'],
   ['#intrebari', 'Întrebări'],
