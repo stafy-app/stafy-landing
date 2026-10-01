@@ -1,0 +1,32 @@
+# build output
+dist/
+
+# generated types / caches
+.astro/
+*.tsbuildinfo
+coverage/
+.vercel/
+
+# dependencies
+node_modules/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# environment variables (.env.example stays tracked)
+.env
+.env.*
+!.env.example
+
+# design reference screenshots / sample PDF (not imported by any component)
+src/assets/
+
+# editor / OS / tooling
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+.claude/settings.local.json

@@ -1,0 +1,34 @@
+---
+import "../styles/global.css";
+
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const {
+	title = "Stafy — finalul de lună, rezolvat",
+	description = "Pontaj pe oră pentru școli și centre cu instructori. Tarife pe om și pe activitate, rapoarte PDF gata la final de lună.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="ro" data-theme="stafy">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<script is:inline>
+			if (!matchMedia("(prefers-reduced-motion: reduce)").matches) document.documentElement.classList.add("js");
+		</script>
+	</head>
+	<body>
+		<slot />
+		<script>
+			import "../scripts/landing";
+		</script>
+	</body>
+</html>
