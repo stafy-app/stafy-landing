@@ -1,6 +1,6 @@
 import { ArrowRight } from 'lucide-react'
 import type { ReactNode } from 'react'
-import { APP_URL } from '../config'
+import { REGISTER_URL } from '../config'
 import { arrow, btnQuiet, btnPrimary, Halo, Reveal, section, wrap } from './ui'
 
 export default function Hero({ children }: { children?: ReactNode }) {
@@ -21,7 +21,7 @@ export default function Hero({ children }: { children?: ReactNode }) {
             </p>
           </Reveal>
           <Reveal i={3} className="mb-[26px] flex flex-wrap gap-3">
-            <a className={`${btnPrimary} btn-lg`} href={`${APP_URL}/register`}>
+            <a className={`${btnPrimary} btn-lg`} href={REGISTER_URL}>
               Creează un cont
             </a>
             <button className={`${btnQuiet} btn-lg`} data-open-report>

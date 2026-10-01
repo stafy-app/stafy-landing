@@ -1,9 +1,9 @@
-import { APP_URL, CONTACT_EMAIL } from '../config'
+import { CONTACT_EMAIL, LOGIN_URL } from '../config'
 import Brand from './Brand'
 import { wrap } from './ui'
 
 const COLS = [
-  ['Produs', [['#cum', 'Cum merge'], ['#manager', 'Pentru manageri'], ['#functii', 'Funcții'], ['#preturi', 'Prețuri'], ['#intrebari', 'Întrebări frecvente'], [APP_URL, 'Intră în cont']]],
+  ['Produs', [['#cum', 'Cum merge'], ['#manager', 'Pentru manageri'], ['#functii', 'Funcții'], ['#preturi', 'Prețuri'], ['#intrebari', 'Întrebări frecvente'], [LOGIN_URL, 'Intră în cont']]],
   ['Companie', [['#final', 'Program pilot'], [`mailto:${CONTACT_EMAIL}`, 'Contact']]],
   ['Legal', [['#', 'Termeni și condiții'], ['#', 'Politica de confidențialitate'], ['#', 'Politica de cookies'], ['#', 'Acord de prelucrare date (DPA)'], ['#', 'Drepturile tale GDPR']]],
 ] as const

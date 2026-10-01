@@ -1,4 +1,4 @@
-import { APP_URL } from '../config'
+import { LOGIN_URL, REGISTER_URL } from '../config'
 import Brand from './Brand'
 import { btnPrimary, btnQuiet, wrap } from './ui'
 
@@ -28,8 +28,8 @@ export default function Nav() {
           ))}
         </div>
         <div className="flex items-center gap-2.5">
-          <a className={`${btnQuiet} btn-md`} href={APP_URL}>Intră în cont</a>
-          <a className={`${btnPrimary} btn-md`} href={`${APP_URL}/register`}>Creează un cont</a>
+          <a className={`${btnQuiet} btn-md`} href={LOGIN_URL}>Intră în cont</a>
+          <a className={`${btnPrimary} btn-md`} href={REGISTER_URL}>Creează un cont</a>
         </div>
       </div>
     </nav>
