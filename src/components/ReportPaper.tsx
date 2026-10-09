@@ -121,7 +121,7 @@ export default function ReportPaper() {
 
         <div className="absolute inset-x-[4.6em] bottom-[2.4em] flex items-end justify-between border-t border-slate-200 pt-[1em] text-[.78em] text-slate-400">
           <span>
-            Confidențial — conține date cu caracter personal
+            Confidențial: conține date cu caracter personal
             <br />
             Document generat automat de stafy.ro · Format v1.0 · Ref: RA-3-20261001-0812
           </span>

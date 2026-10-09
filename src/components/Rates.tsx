@@ -10,12 +10,12 @@ const RATES = [
 
 export default function Rates() {
   return (
-    <section id="dece" className={sectionAlt}>
+    <section id="why" className={sectionAlt}>
       <Halo tone="a" className="-right-64 -top-40 opacity-70" />
       <div className={`${wrap} grid grid-cols-2 items-center gap-[clamp(28px,4vw,60px)] max-[900px]:grid-cols-1`}>
         <SectionHead flush k="De ce nu un pontaj obișnuit" title="Aplicațiile clasice sunt gândite pentru birouri.">
           <p>Program fix, un singur tarif orar, opt ore pe zi. La voi nu arată așa: un instructor predă patru tipuri de activitate, la patru tarife, în ore care se schimbă săptămânal.</p>
-          <p>Tu definești în Stafy tipurile de activitate — curs, demo, recuperare, tabără sau orice altceva aveți — și tariful fiecărui instructor pe fiecare dintre ele. Tariful se fixează în momentul pontajului, așa că o scumpire de azi nu rescrie luna trecută.</p>
+          <p>În Stafy îți definești singur tipurile de activitate (curs, demo, recuperare, tabără sau orice altceva aveți) și tariful fiecărui instructor pe fiecare dintre ele. Tariful se fixează în momentul pontajului, așa că o scumpire de azi nu schimbă luna trecută.</p>
         </SectionHead>
 
         <div className={`${panel} rv p-[30px]`} data-rates>

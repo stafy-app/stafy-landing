@@ -31,15 +31,15 @@ const marker = 'grid size-6 flex-none place-items-center rounded-full'
 
 export default function Problem() {
   return (
-    <section id="problema" className={sectionAlt}>
+    <section id="problem" className={sectionAlt}>
       <Halo tone="b" className="-bottom-30 -left-60" />
       <div className={wrap}>
         <SectionHead k="Problema" title="Știm cum arată. Caiet, WhatsApp, un Excel cu formule și un pix.">
           <p>Cursurile au un tarif. Demo-urile, altul. Recuperările, altul. Taberele, cu totul altceva. Aduni orele de peste tot, le treci în tabel, le calculezi de mână și speri să nu fi sărit nimic.</p>
-          <p>Patru sau cinci ore, în fiecare lună. Și dacă o dată iese greșit, nu pierzi doar timpul — pierzi încrederea unui om care ține la banii lui. Pe bună dreptate.</p>
+          <p>Patru sau cinci ore, în fiecare lună. Iar dacă o dată iese greșit, se duce și încrederea unui om care ține la banii lui. Are tot dreptul.</p>
         </SectionHead>
 
-        <div className="rv group/cmp relative overflow-hidden rounded-[20px] border border-line bg-[linear-gradient(90deg,#F4F7FA_50%,#fff_50%)] shadow-md before:absolute before:inset-y-0 before:left-1/2 before:w-px before:bg-line max-[760px]:bg-white max-[760px]:before:hidden">
+        <div className="rv group/cmp relative overflow-hidden rounded-[20px] border border-line bg-[linear-gradient(90deg,#F4F7FA_50%,#fff_50%)] shadow-md before:absolute before:inset-y-0 before:left-1/2 before:w-px before:bg-line max-[760px]:bg-none max-[760px]:bg-white max-[760px]:before:hidden">
           <div className={`${row} max-[760px]:hidden`}>
             <div className={`${cell} ${oldCell} justify-between pb-5 pt-6`}><span className={`${label} text-ink-muted`}>Cum e acum</span><span className={`${pill} bg-line text-ink-soft`}>Manual</span></div>
             <div className={`${cell} justify-between pb-5 pt-6`}><span className={`${label} text-primary`}>Cu Stafy</span><span className={`${pill} bg-accent text-on-soft`}>Automat</span></div>
@@ -48,7 +48,7 @@ export default function Problem() {
           <div className={row}>
             <div className={`${cell} ${oldCell} !block !pb-[22px] !pt-1.5`}>
               <div aria-hidden="true" className="relative min-h-[176px] overflow-hidden rounded-[14px] border border-line-soft bg-white bg-[repeating-linear-gradient(transparent_0_27px,#E8EDF3_27px_28px)]">
-                <div className={`${bit} ${hand}`} style={vars({ left: '5%', bottom: 8, '--r': '-3deg', '--d': '0s' })}><small className={bitSmall}>Caiet · pag. 14</small>Ioana — marți 3h? sau 2?</div>
+                <div className={`${bit} ${hand}`} style={vars({ left: '5%', bottom: 8, '--r': '-3deg', '--d': '0s' })}><small className={bitSmall}>Caiet · pag. 14</small>Ioana, marți 3h? sau 2?</div>
                 <div className={bit} style={vars({ right: '4%', top: 62, '--r': '3deg', '--d': '-1.2s' })}><small className={bitSmall}>WhatsApp · 23 mesaje noi</small>„Am ținut 2 demo-uri ieri”</div>
                 <div className={bit} style={vars({ left: '4%', top: 10, '--r': '2deg', '--d': '-2.4s' })}><small className={bitSmall}>Plată_sept_FINAL2.xlsx</small>=SUMA(C2:C41) <span className="text-error">#REF!</span></div>
                 <div className={`${bit} ${hand}`} style={vars({ right: '6%', top: 14, '--r': '-3deg', '--d': '-3.1s' })}>tarif tabără = ??</div>

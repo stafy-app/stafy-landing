@@ -1,11 +1,11 @@
-import { CONTACT_EMAIL, LOGIN_URL } from '../config'
+import { CONTACT_EMAIL, LOGIN_URL, SHOW_COMPANY_INFO, SHOW_PILOT_PROGRAM, UNDER_CONSTRUCTION_URL as WIP } from '../config'
 import Brand from './Brand'
 import { wrap } from './ui'
 
 const COLS = [
-  ['Produs', [['#cum', 'Cum merge'], ['#manager', 'Pentru tine'], ['#functii', 'Funcții'], ['#preturi', 'Prețuri'], ['#intrebari', 'Întrebări frecvente'], [LOGIN_URL, 'Intră în cont']]],
-  ['Companie', [['#final', 'Program pilot'], [`mailto:${CONTACT_EMAIL}`, 'Contact']]],
-  ['Legal', [['#', 'Termeni și condiții'], ['#', 'Politica de confidențialitate'], ['#', 'Politica de cookies'], ['#', 'Acord de prelucrare date (DPA)'], ['#', 'Drepturile tale GDPR']]],
+  ['Produs', [['#how-it-works', 'Cum merge'], ['#manager', 'Pentru tine'], ['#features', 'Funcții'], ['#pricing', 'Prețuri'], ['#faq', 'Întrebări frecvente'], [LOGIN_URL, 'Intră în cont']]],
+  ['Companie', [['#final', SHOW_PILOT_PROGRAM ? 'Program pilot' : 'Anunță-mă la lansare'], [`mailto:${CONTACT_EMAIL}`, 'Contact']]],
+  ['Legal', [[WIP, 'Termeni și condiții'], [WIP, 'Politica de confidențialitate'], [WIP, 'Politica de cookies'], [WIP, 'Acord de prelucrare date (DPA)'], [WIP, 'Drepturile tale GDPR']]],
 ] as const
 
 const anpc =
@@ -36,7 +36,12 @@ export default function Footer() {
         </div>
         <div className="flex flex-wrap items-center justify-between gap-x-7 gap-y-4 border-t border-white/10 pt-6 text-[12.5px] text-white/45">
           <div className="flex min-w-0 flex-1 flex-wrap gap-x-3.5 gap-y-1.5 [&>span]:whitespace-nowrap">
-            <span>© 2026 Stafy</span><span>[Denumire firmă SRL]</span><span>CUI [—]</span><span>Reg. Com. [—]</span>
+            <span>© 2026 Stafy</span>
+            {SHOW_COMPANY_INFO && (
+              <>
+                <span>[Denumire firmă SRL]</span><span>CUI [—]</span><span>Reg. Com. [—]</span>
+              </>
+            )}
           </div>
           <div className="flex flex-wrap gap-2.5">
             <a className={anpc} href="https://anpc.ro/ce-este-sal/" target="_blank" rel="noopener">ANPC · SAL</a>

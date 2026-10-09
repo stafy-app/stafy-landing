@@ -147,7 +147,7 @@ export default function ContactDrawer() {
 
             {(status === 'error' || status === 'limited') && (
               <p role="alert" className="rounded-xl bg-error/10 px-3.5 py-2.5 text-[13.5px] leading-[1.5] text-error">
-                {status === 'limited' ? 'Prea multe încercări. Mai încearcă puțin mai târziu sau scrie-ne direct la ' : 'Nu am putut trimite mesajul. Scrie-ne direct la '}
+                {status === 'limited' ? 'Prea multe încercări. Mai încearcă puțin mai târziu sau scrie-ne direct la' : 'Nu am putut trimite mesajul. Scrie-ne direct la'}{' '}
                 <a className="font-semibold underline" href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
               </p>
             )}

@@ -3,14 +3,14 @@ import type { LucideIcon } from 'lucide-react'
 import { Reveal, SectionHead, sectionAlt, wrap } from './ui'
 
 const FEATURES: [LucideIcon, string, string][] = [
-  [Timer, 'Pontaj din browser', 'Alegi activitatea, ora de început și de final — de pe telefon sau laptop. Nimic de instalat.'],
-  [CircleDollarSign, 'Tarif per om, per activitate', 'Fiecare instructor are tariful lui. Se fixează la pontaj — istoricul nu se rescrie.'],
+  [Timer, 'Pontaj din browser', 'Alegi activitatea, ora de început și ora de final, de pe telefon sau de pe laptop. Nu instalezi nimic.'],
+  [CircleDollarSign, 'Tarif per om, per activitate', 'Fiecare instructor are tariful lui. Tariful se fixează la pontaj, deci istoricul nu se schimbă.'],
   [Plus, 'Bonus lunar', 'Adaugi un bonus pe instructor, iar el intră automat în total.'],
-  [FileText, 'Rapoarte lunare PDF', 'Pe fiecare instructor, cu ore și sume pe activitate. Previzualizare live, înainte de descărcare.'],
+  [FileText, 'Rapoarte lunare PDF', 'Un raport pe instructor, cu orele și sumele pe activitate. Îl vezi înainte să-l descarci.'],
   [ChartPie, 'Dashboard de companie', 'Ore pe activități, top instructori și comparație cu luna trecută.'],
-  [Users, 'Echipă și export CSV', 'Toți oamenii, cu ore, diferențe și brut estimat. Căutare și export într-un click.'],
+  [Users, 'Echipă și export CSV', 'Toți oamenii, cu orele, diferențele și brutul estimat. Cauți și exporți CSV dintr-un click.'],
   [Pencil, 'Corecturi transparente', 'Editezi start și stop. Instructorul vede „Modificat de …”, deci nu apar discuții.'],
-  [History, 'Roluri și jurnal', 'Owner, manageri și instructori, cu invitații pe email. Plus jurnal cu cine a schimbat ce.'],
+  [History, 'Roluri și jurnal', 'Owner, manageri și instructori, invitați pe email. Jurnalul arată cine a schimbat ce.'],
 ]
 
 // Named exactly like the app's own navigation and profile tabs.
@@ -25,7 +25,7 @@ const BADGES: [LucideIcon, string][] = [
 
 export default function Features() {
   return (
-    <section id="functii" className={sectionAlt}>
+    <section id="features" className={sectionAlt}>
       <div className={wrap}>
         <SectionHead k="Funcții" title="Cine a lucrat, cât, la ce tarif." />
 

@@ -12,7 +12,7 @@ import { vars } from './util'
 
 const BULLETS: [LucideIcon, string][] = [
   [ChartPie, 'Ore, sume și activități pe fiecare om, comparate cu luna trecută'],
-  [Pencil, 'Corectezi orice pontaj — instructorul vede „Modificat de …”'],
+  [Pencil, 'Corectezi orice pontaj, iar instructorul vede „Modificat de …”'],
   [Plus, 'Bonus lunar pe instructor, inclus automat în total'],
   [Eye, 'Instructorul își vede singur orele și câștigurile, deci mai puține întrebări la final de lună'],
   [History, 'Jurnal de modificări: cine a schimbat tarife, bonusuri sau pontaje, și când'],
@@ -318,7 +318,7 @@ export default function Manager() {
           </div>
         </div>
 
-        <SectionHead flush k="Ce vezi ca manager" title="Luna e deschisă în față, nu strânsă la final.">
+        <SectionHead flush k="Ce vezi ca manager" title="Vezi luna pe parcurs, nu abia la final.">
           <div className="mt-2 divide-y divide-ink/[.07]">
             {BULLETS.map(([Icon, text]) => (
               <div key={text} className="flex items-start gap-3.5 py-[18px]">

@@ -1,4 +1,4 @@
-import PontajPhone from './PontajPhone'
+import TimesheetPhone from './TimesheetPhone'
 import { panel, Reveal, SectionHead, section, wrap } from './ui'
 
 const BARS = [
@@ -32,15 +32,15 @@ function Step({ i, title, text, children }: { i: number; title: string; text: st
 
 export default function Steps() {
   return (
-    <section id="cum" className={section}>
+    <section id="how-it-works" className={section}>
       <div className={wrap}>
         <SectionHead k="Cum merge" title="Trei pași, și raportul e gata." />
         <div className="grid grid-cols-3 gap-[clamp(20px,2.4vw,26px)] max-[900px]:grid-cols-1">
           <Step i={1} title="Instructorul pontează. 60 de secunde." text="Din browser, de pe telefon sau laptop. Alege activitatea, ora de început și ora de final. Durata se calculează singură. Nimic de instalat.">
-            <PontajPhone />
+            <TimesheetPhone />
           </Step>
 
-          <Step i={2} title="Stafy calculează." text="Fiecare instructor are tariful lui pe fiecare activitate. Durata, suma și bonusul lunar ies singure, corect.">
+          <Step i={2} title="Stafy calculează." text="Fiecare instructor are tariful lui pe fiecare activitate. Durata, suma și bonusul lunar se calculează automat.">
             <div className={viz} data-bars>
               {BARS.map(([label, w, val]) => (
                 <div key={label} className="flex items-center gap-2.5 text-[12.5px]">

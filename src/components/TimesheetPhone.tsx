@@ -21,7 +21,7 @@ function Swap({ from, to, delay, className = '' }: { from: ReactNode; to: ReactN
 const label = 'mb-1 mt-2.5 text-[8.5px] font-semibold uppercase tracking-[.1em] text-ink-muted'
 const field = 'flex items-center justify-between rounded-lg border border-line bg-white px-2.5 py-[7px] text-[11px] text-ink'
 
-export default function PontajPhone() {
+export default function TimesheetPhone() {
   return (
     <div className="mt-auto flex justify-center overflow-hidden rounded-[14px] border border-ink/[.07] bg-white/70 px-4 pt-5">
       <IPhone cropped className="max-w-[240px]">

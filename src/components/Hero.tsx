@@ -17,7 +17,7 @@ export default function Hero({ children }: { children?: ReactNode }) {
           </Reveal>
           <Reveal i={2}>
             <p className="mb-9 max-w-[560px] text-pretty text-[length:clamp(17px,1.7vw,20.5px)] leading-[1.6] text-ink-soft">
-              Instructorii își pontează orele din browser, de pe telefon sau laptop — aleg activitatea, ora de început și ora de final. Nimic de instalat. Stafy aplică tariful fiecărui om pe fiecare activitate, adaugă bonusul și pregătește raportul lunar în PDF. Tu doar îl verifici.
+              Instructorii își pontează orele din browser, de pe telefon sau laptop, fără să instaleze nimic. Aleg activitatea, ora de început și ora de final, iar Stafy aplică tariful fiecăruia, adaugă bonusul și scoate raportul lunar în PDF. Tu doar îl verifici.
             </p>
           </Reveal>
           <Reveal i={3} className="mb-[26px] flex flex-wrap gap-3">

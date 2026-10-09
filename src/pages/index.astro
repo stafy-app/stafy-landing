@@ -18,7 +18,7 @@ import ContactTab from "../components/ContactTab";
 ---
 
 <Layout>
-	<Nav />
+	<Nav client:load />
 	<Hero>
 		<HeroApp client:idle />
 	</Hero>
@@ -29,7 +29,7 @@ import ContactTab from "../components/ContactTab";
 	<Features />
 	<Pricing />
 	<Faq />
-	<FinalCta />
+	<FinalCta client:visible />
 	<Footer />
 	<ReportModal />
 	<ContactDrawer client:idle />

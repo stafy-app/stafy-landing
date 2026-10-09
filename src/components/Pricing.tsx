@@ -26,7 +26,7 @@ const PLANS: Plan[] = [
 
 export default function Pricing() {
   return (
-    <section id="preturi" className={`${sectionIntoBand} !pb-[clamp(56px,6vw,88px)]`}>
+    <section id="pricing" className={`${sectionIntoBand} !pb-[clamp(56px,6vw,88px)]`}>
       <div className={wrap}>
         <SectionHead k="Prețuri" title="Toate funcțiile, în fiecare plan. Alegi doar câți oameni are echipa." />
 
@@ -35,7 +35,7 @@ export default function Pricing() {
             0 lei<small className="ml-1.5 text-[.32em] font-semibold tracking-normal text-ink-muted">pentru tine</small>
           </div>
           <div>
-            <b className="block text-[length:clamp(20px,2.2vw,26px)] leading-tight tracking-[-.02em] text-ink">Tu, ca owner, nu ocupi loc. Și îți poți ponta și tu orele.</b>
+            <b className="block text-[length:clamp(20px,2.2vw,26px)] leading-tight tracking-[-.02em] text-ink">Tu, ca owner, nu ocupi niciun loc și îți poți ponta și tu orele.</b>
             <p className="mt-2 max-w-[620px] text-[15.5px] leading-[1.55] text-ink-soft">Plătești doar pentru echipă. Dacă predai și tu, îți pontezi cursurile ca orice instructor, cu tariful tău pe oră.</p>
           </div>
         </div>

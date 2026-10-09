@@ -102,13 +102,14 @@
 @custom-variant js (:where(.js) &);
 
 @layer base {
-  html { scroll-behavior: smooth; }
+  /* `clip`, not `hidden`: mobile browsers widen the layout viewport for overflowing content despite overflow-x: hidden. */
+  html { scroll-behavior: smooth; overflow-x: clip; }
   html:has(dialog[open]) { overflow: hidden; }
   /* Container is fluid up to 1680px; only very large monitors are scaled up. */
   @media (min-width: 2560px) { html { zoom: 1.4; } }
   @media (min-width: 3200px) { html { zoom: 1.8; } }
   body {
-    @apply overflow-x-hidden bg-warm font-sans text-ink antialiased;
+    @apply overflow-x-clip bg-warm font-sans text-ink antialiased;
   }
   /* faint dot grain */
   body::before {

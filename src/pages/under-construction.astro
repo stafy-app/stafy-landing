@@ -1,0 +1,24 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Brand from "../components/Brand";
+import { CONTACT_EMAIL } from "../config";
+---
+
+<Layout
+	title="Stafy: pagină în construcție"
+	description="Această pagină nu este încă gata."
+>
+	<main class="grid min-h-dvh place-items-center bg-warm px-4 py-16">
+		<div class="mx-auto flex max-w-[520px] flex-col items-center text-center">
+			<Brand href="/" />
+			<h1 class="mb-3 mt-10 text-balance text-[clamp(28px,4vw,40px)] font-bold leading-[1.1] tracking-[-.03em]">
+				Pagina asta e încă în lucru.
+			</h1>
+			<p class="mb-8 text-pretty text-[17px] leading-[1.6] text-ink-soft">
+				O pregătim și o publicăm în curând. Dacă ai nevoie de ceva până atunci, scrie-ne la{" "}
+				<a class="font-semibold text-primary" href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
+			</p>
+			<a class="btn btn-primary btn-lg rounded-full font-semibold shadow-none" href="/">Înapoi la prima pagină</a>
+		</div>
+	</main>
+</Layout>

@@ -3,7 +3,7 @@ import { vars } from './util'
 
 export const wrap = 'relative z-[2] mx-auto w-full max-w-[1680px] px-[clamp(20px,4vw,80px)]'
 /** Section shell. Bands never end in a hard edge: alt sections fade in and out of the page background. */
-export const section = 'relative py-[clamp(72px,9vw,132px)]'
+export const section = 'relative overflow-x-clip py-[clamp(72px,9vw,132px)]'
 /** Alternate band: slightly cooler background that melts into its neighbours instead of ending in a line. */
 export const sectionAlt = `${section} bg-[linear-gradient(to_bottom,transparent,var(--color-band)_clamp(96px,14vw,200px),var(--color-band)_calc(100%-clamp(96px,14vw,200px)),transparent)]`
 /** Plain section whose background melts into the band colour at its bottom edge; the next section starts on that band. */
