@@ -2,7 +2,7 @@ import { ArrowRight, LogIn, MessageCircle } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { LOGIN_URL, REGISTER_URL } from '../config'
 import Brand from './Brand'
-import { btnPrimary, btnQuiet, wrap } from './ui'
+import { btnPrimary, btnQuiet } from './ui'
 import { vars } from './util'
 
 const LINKS = [
@@ -19,8 +19,8 @@ const link =
 
 // Mobile menu items slide up one after another when the panel opens; on close they leave together (no delay).
 const item = (open: boolean) =>
-  `transition-[opacity,translate] duration-500 ease-soft ${
-    open ? 'translate-y-0 opacity-100 [transition-delay:calc(var(--i)*55ms+140ms)]' : 'translate-y-4 opacity-0'
+  `transition-[opacity,translate] ease-soft ${
+    open ? 'translate-y-0 opacity-100 duration-500 [transition-delay:calc(var(--i)*55ms+140ms)]' : 'translate-y-2 opacity-0 duration-200'
   }`
 
 const bar = 'absolute left-0 h-[2px] w-[22px] rounded-full bg-ink transition-[translate,rotate,opacity] duration-500 ease-soft'
@@ -47,11 +47,12 @@ export default function Nav() {
   return (
     <nav
       id="nav"
-      className="sticky top-0 z-[60] border-b border-transparent bg-warm/70 backdrop-blur-[20px] backdrop-saturate-[1.8] transition-[background,border-color,box-shadow] duration-[400ms] ease-soft [&.stuck]:border-ink/[.07] [&.stuck]:bg-white/70 [&.stuck]:shadow-[0_1px_20px_rgb(30_41_59/.05)]"
-    >
-      <div className={`${wrap} flex h-[64px] items-center justify-between gap-4 min-[1041px]:h-[74px] min-[1041px]:gap-6`}>
+      style={vars({ '--o': open ? 1 : 0 })}
+      className="pointer-events-none sticky top-0 z-[60] pt-3 [--m:12px] [--p:0] [--pad:20px] [--q:max(var(--p),var(--o))] [padding-inline:calc(var(--m)*var(--q))] transition-[padding] duration-300 ease-soft min-[1041px]:pt-4 min-[1041px]:[--m:24px] min-[1041px]:[--pad:28px]">
+      {/* Floating pill: flat and full-width at the top, narrows into a floating pill as the page scrolls (--p, set in landing.ts); an open mobile menu forces it. */}
+      <div className="pointer-events-auto relative mx-auto flex h-[56px] items-center justify-between gap-4 rounded-full border border-solid min-[1041px]:h-[64px] min-[1041px]:gap-6 transition-[background-color,border-color,box-shadow,backdrop-filter,padding] duration-300 ease-soft [max-width:calc(1680px-640px*var(--q))] [padding-inline:calc(clamp(20px,4vw,80px)*(1-var(--q))+var(--pad)*var(--q))] [background-color:rgb(255_255_255/calc(var(--q)*.58))] [border-color:rgb(255_255_255/calc(var(--q)*.6))] [box-shadow:0_8px_30px_rgb(30_41_59/calc(var(--q)*.1)),inset_0_1px_0_rgb(255_255_255/calc(var(--q)*.7))] [backdrop-filter:blur(calc(var(--q)*24px))_saturate(calc(1+var(--q)*1))]">
         <Brand />
-        <div className="flex gap-[30px] max-[1040px]:hidden">
+        <div className="flex [gap:calc(30px-6px*var(--p))] max-[1040px]:hidden">
           {LINKS.map(([href, label]) => (
             <a key={href} href={href} className={link}>{label}</a>
           ))}
@@ -66,7 +67,7 @@ export default function Nav() {
             aria-expanded={open}
             aria-controls="mobile-menu"
             onClick={() => setOpen((o) => !o)}
-            className="relative -mr-2 grid size-11 flex-none place-items-center rounded-full text-ink transition-colors hover:bg-ink/[.06] min-[1041px]:hidden"
+            className="relative -mr-3 grid size-11 flex-none place-items-center rounded-full text-ink transition-colors hover:bg-ink/[.06] min-[1041px]:hidden"
           >
             <span aria-hidden="true" className="relative block h-[14px] w-[22px]">
               <i className={`${bar} top-0 ${open ? 'translate-y-[6px] rotate-45' : ''}`} />
@@ -81,17 +82,17 @@ export default function Nav() {
       <div
         id="mobile-menu"
         onClick={(e) => (e.target as Element).closest('a, button') && setOpen(false)}
-        className={`absolute inset-x-0 top-full min-[1041px]:hidden ${open ? 'visible' : 'pointer-events-none invisible delay-500'}`}
+        className={`absolute inset-x-3 top-full mt-2 min-[1041px]:hidden ${open ? 'pointer-events-auto visible' : 'pointer-events-none invisible delay-[380ms]'}`}
       >
         <button
           type="button"
           tabIndex={-1}
           aria-hidden="true"
-          className={`fixed inset-x-0 top-[64px] -z-10 h-dvh w-full cursor-default bg-ink/30 backdrop-blur-[3px] transition-opacity duration-500 ease-soft ${open ? 'opacity-100' : 'opacity-0'}`}
+          className={`fixed inset-0 -z-10 h-dvh w-full cursor-default bg-ink/30 backdrop-blur-[3px] transition-opacity duration-500 ease-soft ${open ? 'opacity-100' : 'opacity-0'}`}
         />
         <div
-          className={`max-h-[calc(100dvh-64px)] overflow-y-auto rounded-b-[28px] border-b border-ink/[.07] bg-white px-[clamp(20px,4vw,80px)] pb-7 pt-3 shadow-[0_30px_60px_rgb(30_41_59/.18)] transition-[opacity,translate] duration-500 ease-soft ${
-            open ? 'translate-y-0 opacity-100' : '-translate-y-3 opacity-0'
+          className={`max-h-[calc(100dvh-88px)] overflow-y-auto rounded-[28px] border border-ink/[.07] bg-white px-5 pb-6 pt-2 shadow-[0_30px_60px_rgb(30_41_59/.18)] origin-top transition-[opacity,translate,scale] ease-soft ${
+            open ? 'translate-y-0 scale-100 opacity-100 duration-500' : '-translate-y-4 scale-[.96] opacity-0 duration-[380ms]'
           }`}
         >
           <ul className="divide-y divide-ink/[.07]">

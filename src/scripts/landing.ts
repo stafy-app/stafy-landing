@@ -59,12 +59,23 @@ const nav = document.getElementById("nav");
 const app = document.getElementById("app");
 const pars = [...document.querySelectorAll<HTMLElement>("[data-par]")];
 let raf = 0;
+// Nav morph is scroll-driven: --p (0..1) eases toward the scroll position so wheel jumps animate in both directions.
+let navP = 0;
+let navRaf = 0;
+const easeNav = () => {
+	navRaf = 0;
+	const target = Math.min(scrollY / 120, 1);
+	navP += (target - navP) * 0.14;
+	if (Math.abs(target - navP) < 0.002) navP = target;
+	else navRaf = requestAnimationFrame(easeNav);
+	nav?.style.setProperty("--p", navP.toFixed(3));
+};
 const onScroll = () => {
+	if (!navRaf) navRaf = requestAnimationFrame(easeNav);
 	if (raf) return;
 	raf = requestAnimationFrame(() => {
 		raf = 0;
 		const y = scrollY;
-		nav?.classList.toggle("stuck", y > 8);
 		if (reduce) return;
 		pars.forEach((p) => (p.style.transform = `translate3d(0,${(y * Number(p.dataset.par)).toFixed(1)}px,0)`));
 		if (app) app.style.transform = `translate3d(0,${(-y * 0.025).toFixed(1)}px,0)`;
