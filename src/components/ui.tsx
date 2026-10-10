@@ -10,6 +10,8 @@ export const sectionAlt = `${section} bg-[linear-gradient(to_bottom,transparent,
 export const sectionIntoBand = `${section} bg-[linear-gradient(to_bottom,transparent_calc(100%-clamp(96px,14vw,200px)),var(--color-band))]`
 /** Band section that starts already on the band colour (no fade in) and fades out at the bottom. */
 export const sectionFromBand = `${section} bg-[linear-gradient(to_bottom,var(--color-band)_calc(100%-clamp(96px,14vw,200px)),transparent)]`
+/** Illustration box of a "Cum merge" step: one fixed height so the three cards line up. */
+export const viz = 'mt-auto flex h-[252px] flex-col justify-center gap-2.5 rounded-[14px] border border-ink/[.07] bg-white/70 p-4'
 export const panel = 'card rounded-[20px] border border-line-soft bg-white shadow-md'
 
 const btnBase = 'btn group rounded-full font-semibold shadow-none whitespace-nowrap'

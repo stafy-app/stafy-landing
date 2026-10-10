@@ -1,19 +1,19 @@
+import { Download } from 'lucide-react'
 import TimesheetPhone from './TimesheetPhone'
-import { panel, Reveal, SectionHead, section, wrap } from './ui'
+import { panel, Reveal, SectionHead, section, viz, wrap } from './ui'
 
 const BARS = [
-  ['Curs', 82, '180 lei'],
-  ['Demo', 36, '80 lei'],
-  ['Recuperare', 45, '100 lei'],
+  ['Curs', '2 h × 90 lei', 82, '180 lei'],
+  ['Demo', '1 h × 80 lei', 36, '80 lei'],
+  ['Recuperare', '1 h × 100 lei', 45, '100 lei'],
 ] as const
 
 const DOC_ROWS = [
-  ['Curs Scratch · 12', '2.160 lei'],
-  ['Demo · 4', '320 lei'],
-  ['Recuperare · 3', '300 lei'],
+  ['Curs Scratch · 12 h', '2.160 lei'],
+  ['Demo · 4 h', '320 lei'],
+  ['Recuperare · 3 h', '300 lei'],
+  ['Bonus lunar', '+ 100 lei'],
 ]
-
-const viz = 'mt-auto flex min-h-[132px] flex-col justify-center gap-2.5 rounded-[14px] border border-ink/[.07] bg-white/70 p-4'
 
 function Step({ i, title, text, children }: { i: number; title: string; text: string; children: React.ReactNode }) {
   return (
@@ -42,29 +42,35 @@ export default function Steps() {
 
           <Step i={2} title="Stafy calculează." text="Fiecare instructor are tariful lui pe fiecare activitate. Durata, suma și bonusul lunar se calculează automat.">
             <div className={viz} data-bars>
-              {BARS.map(([label, w, val]) => (
-                <div key={label} className="flex items-center gap-2.5 text-[12.5px]">
-                  <span className="w-[74px] flex-none text-ink-soft">{label}</span>
-                  <span className="h-2 flex-1 overflow-hidden rounded-full bg-slate-100">
+              {BARS.map(([label, calc, w, val]) => (
+                <div key={label} className="text-[12.5px]">
+                  <div className="mb-1 flex items-baseline justify-between gap-2">
+                    <span className="font-medium text-ink">{label} <span className="ml-1 text-[11px] font-normal text-ink-muted">{calc}</span></span>
+                    <span className="font-semibold tabular-nums text-ink">{val}</span>
+                  </div>
+                  <span className="block h-2 overflow-hidden rounded-full bg-slate-100">
                     <span data-w={w} className="block h-full w-0 rounded-full bg-[linear-gradient(90deg,#FFA24A,var(--color-primary))] transition-[width] duration-[1300ms] ease-soft" />
                   </span>
-                  <span className="w-[62px] flex-none text-right font-semibold tabular-nums text-ink">{val}</span>
                 </div>
               ))}
+              <div className="mt-1 flex justify-between border-t border-line-soft pt-2.5 text-[12.5px]">
+                <span className="text-ink-soft">Total + bonus</span><b className="tabular-nums text-ink">460 lei</b>
+              </div>
             </div>
           </Step>
 
           <Step i={3} title="Tu primești raportul." text="Un raport pe fiecare instructor, cu ore și sume pe activitate, plus bonus. Îl previzualizezi, apoi descarci PDF-ul.">
             <div className={viz}>
-              <div className="rounded-[10px] border border-line-soft bg-white p-3 text-[10.5px] text-ink-soft shadow-sm">
-                <div className="mb-[7px] flex items-center justify-between border-b border-line-soft pb-[7px]">
-                  <b className="text-[11px] text-ink">Raport · Septembrie</b><span>Andrei M.</span>
+              <div className="rounded-[10px] border border-line-soft bg-white p-3 text-[11.5px] text-ink-soft shadow-sm">
+                <div className="mb-2 flex items-center justify-between border-b border-line-soft pb-2">
+                  <b className="text-[12px] text-ink">Raport · Septembrie</b><span>Andrei M.</span>
                 </div>
                 {DOC_ROWS.map(([a, b]) => (
-                  <div key={a} className="flex justify-between py-[3px]"><span>{a}</span><span>{b}</span></div>
+                  <div key={a} className="flex justify-between py-[3px]"><span>{a}</span><span className="tabular-nums">{b}</span></div>
                 ))}
-                <div className="mt-[7px] flex justify-between border-t border-line-soft pt-[7px] text-[11.5px] font-bold text-ink"><span>Total</span><span>2.780 lei</span></div>
+                <div className="mt-2 flex justify-between border-t border-line-soft pt-2 text-[12.5px] font-bold text-ink"><span>Total</span><span className="tabular-nums">2.880 lei</span></div>
               </div>
+              <div className="flex items-center justify-center gap-1.5 rounded-lg bg-ink py-2 text-[12px] font-semibold text-white"><Download size={13} /> Descarcă PDF</div>
             </div>
           </Step>
         </div>

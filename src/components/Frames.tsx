@@ -87,19 +87,20 @@ const Cellular = () => (
   </svg>
 )
 
+// iOS Wi-Fi glyph: a 90° fan cut into a wedge and two concentric bands, all centred on (8.5, 11.2).
 const WifiIcon = () => (
-  <svg width="15" height="11" viewBox="0 0 17 12" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-    <path d="M2.14 4.64A9 9 0 0 1 14.86 4.64" />
-    <path d="M4.26 6.76A6 6 0 0 1 12.74 6.76" />
-    <circle cx="8.5" cy="10.2" r="1" fill="currentColor" stroke="none" />
+  <svg width="16" height="11" viewBox="0 1.6 17 10.2" fill="currentColor">
+    <path d="M8.5 11.2 6.38 9.08A3 3 0 0 1 10.62 9.08Z" stroke="currentColor" strokeWidth=".8" strokeLinejoin="round" />
+    <path d="M4.68 7.38A5.4 5.4 0 0 1 12.32 7.38" fill="none" stroke="currentColor" strokeWidth="1.9" />
+    <path d="M2.7 5.4A8.2 8.2 0 0 1 14.3 5.4" fill="none" stroke="currentColor" strokeWidth="1.9" />
   </svg>
 )
 
 const Battery = () => (
-  <svg width="23" height="11" viewBox="0 0 27 13" fill="currentColor">
-    <rect x=".5" y=".5" width="22" height="12" rx="3.8" fill="none" stroke="currentColor" strokeOpacity=".4" />
-    <rect x="2" y="2" width="19" height="9" rx="2.5" />
-    <path d="M24.2 4.4v4.2c.9-.35 1.6-1.2 1.6-2.1s-.7-1.75-1.6-2.1z" fillOpacity=".45" />
+  <svg width="25" height="12" viewBox="0 0 27 13" fill="currentColor">
+    <rect x=".5" y=".5" width="24" height="12" rx="3.8" fill="none" stroke="currentColor" strokeOpacity=".35" />
+    <rect x="2" y="2" width="21" height="9" rx="2.5" />
+    <path d="M26 4.5v4c.8-.3 1.5-1.1 1.5-2s-.7-1.7-1.5-2z" fillOpacity=".4" />
   </svg>
 )
 
