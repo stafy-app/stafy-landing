@@ -1,0 +1,141 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Brand from "../components/Brand";
+import Footer from "../components/Footer";
+import { CONTACT_EMAIL, PRIVACY_URL } from "../config";
+
+const VERSION = "1.0";
+const EFFECTIVE_DATE = "11 noiembrie 2026";
+
+const h2 = "mt-12 mb-4 scroll-mt-24 text-[22px] font-bold tracking-[-.02em] text-ink";
+const p = "mb-4 text-pretty text-[16px] leading-[1.7] text-ink-soft";
+const ul = "mb-4 flex list-disc flex-col gap-2 pl-5 text-[16px] leading-[1.65] text-ink-soft marker:text-ink-muted";
+const b = "font-semibold text-ink";
+const a = "font-semibold text-primary underline decoration-primary/30 underline-offset-4 hover:decoration-primary";
+const mail = `mailto:${CONTACT_EMAIL}`;
+---
+
+<Layout
+	title="Termeni și condiții · Stafy"
+	description="Regulile de folosire a aplicației Stafy, versiunea de test gratuită."
+>
+	<header class="mx-auto flex max-w-[820px] items-center justify-between px-5 pt-8">
+		<Brand href="/" />
+		<a class="text-[14.5px] font-semibold text-ink-soft hover:text-ink" href="/">Înapoi la prima pagină</a>
+	</header>
+
+	<main class="mx-auto max-w-[820px] px-5 pb-24 pt-12">
+		<h1 class="mb-3 text-balance text-[clamp(30px,4.4vw,44px)] font-bold leading-[1.1] tracking-[-.03em] text-ink">
+			Termeni și condiții
+		</h1>
+		<p class="mb-10 text-[14px] text-ink-muted">Versiunea {VERSION} · în vigoare din {EFFECTIVE_DATE}</p>
+
+		<h2 id="despre" class={h2}>1. Despre acești termeni</h2>
+		<p class={p}>
+			Acești termeni reglementează folosirea aplicației Stafy (app.stafy.ro) și a site-ului stafy.ro. Serviciul este oferit de
+			<span class={b}>Andrei-Ionuț Țicărat</span>, persoană fizică, contact <a class={a} href={mail}>{CONTACT_EMAIL}</a>.
+		</p>
+		<p class={p}>
+			Termenii se acceptă la crearea contului, prin bifarea căsuței dedicate. Fără acceptarea lor, contul nu poate fi creat. Modul în
+			care sunt prelucrate datele personale este descris separat, în <a class={a} href={PRIVACY_URL}>Politica de confidențialitate</a>.
+		</p>
+
+		<h2 id="serviciu" class={h2}>2. Ce este Stafy</h2>
+		<p class={p}>
+			Stafy este o aplicație de pontaj și de calcul al plății pe oră. Permite înregistrarea orelor lucrate, stabilirea tarifelor pe
+			persoană și pe activitate, adăugarea de bonusuri și generarea de rapoarte lunare.
+		</p>
+		<p class={p}>Stafy este în prezent o <span class={b}>versiune de test, oferită gratuit și fără scop comercial</span>.</p>
+
+		<h2 id="cont" class={h2}>3. Contul</h2>
+		<ul class={ul}>
+			<li>Datele introduse la înregistrare trebuie să fie reale și actuale.</li>
+			<li>Contul este personal. Parola nu se împarte cu alte persoane, iar orice activitate din cont este considerată a titularului.</li>
+			<li>Dacă bănuiești că altcineva are acces la contul tău, schimbă-ți parola și anunță-ne la <a class={a} href={mail}>{CONTACT_EMAIL}</a>.</li>
+			<li>Fiecare cont are propriul spațiu de lucru, pe care titularul îl administrează. În spațiul altcuiva se intră doar pe bază de invitație, iar drepturile din acel spațiu depind de rolul primit. Modificările făcute de oricine (tarife, bonusuri, corecturi de pontaj, invitații) rămân în istoricul spațiului respectiv.</li>
+		</ul>
+
+		<h2 id="gratuit" class={h2}>4. Gratuit, în perioada de testare</h2>
+		<ul class={ul}>
+			<li>Folosirea Stafy nu presupune nicio plată și nu cere date de card.</li>
+			<li>La înscriere, spațiul de lucru primește acces complet pentru 45 de zile. După această perioadă, accesul se prelungește gratuit, la cerere. Fără prelungire, contul trece în modul doar-citire: pontajul continuă, rapoartele rămân accesibile, dar alte modificări nu mai sunt posibile.</li>
+			<li>Dacă vor fi introduse planuri plătite, utilizatorii vor fi anunțați cu cel puțin <span class={b}>15 zile</span> înainte. Nimeni nu va fi trecut automat pe un plan plătit; orice plată va necesita acordul explicit al utilizatorului.</li>
+		</ul>
+
+		<h2 id="date-terti" class={h2}>5. Datele despre alte persoane</h2>
+		<p class={p}>Oricine introduce în Stafy date despre alte persoane (de exemplu tarife, bonusuri, funcții, corecturi de pontaj sau invitații):</p>
+		<ul class={ul}>
+			<li>răspunde de corectitudinea lor;</li>
+			<li>trebuie să aibă dreptul să le folosească;</li>
+			<li>informează persoanele respective că datele lor sunt înregistrate în Stafy.</li>
+		</ul>
+		<p class={p}>
+			<span class={b}>Stafy nu înlocuiește evidența oficială a timpului de muncă</span>, pe care angajatorul este obligat să o țină
+			potrivit Codului muncii, și nici documentele de salarizare. În perioada de testare, evidența și plata oficiale se țin separat, de
+			către angajator.
+		</p>
+
+		<h2 id="folosire" class={h2}>6. Folosire permisă</h2>
+		<p class={p}>Nu este permis:</p>
+		<ul class={ul}>
+			<li>accesul sau încercarea de acces la conturile ori datele altor utilizatori sau companii;</li>
+			<li>perturbarea funcționării serviciului (atacuri, încărcare excesivă, automatizări abuzive);</li>
+			<li>folosirea Stafy pentru activități ilegale sau pentru a stoca date pe care nu ai dreptul să le prelucrezi;</li>
+			<li>copierea, revânzarea sau reproducerea aplicației.</li>
+		</ul>
+
+		<h2 id="test" class={h2}>7. Versiune de test: disponibilitate și erori</h2>
+		<ul class={ul}>
+			<li>Stafy este oferit <span class={b}>„așa cum este”</span>. Fiind o versiune de test, poate conține erori, poate fi indisponibil temporar, iar funcțiile se pot schimba fără preaviz.</li>
+			<li>Verifică sumele calculate înainte de a le folosi în orice scop. Pentru siguranță, exportă periodic datele importante (CSV sau PDF, din aplicație).</li>
+			<li>Facem copii de siguranță ale datelor, dar nu garantăm că o pierdere poate fi recuperată integral.</li>
+		</ul>
+
+		<h2 id="datele-tale" class={h2}>8. Datele introduse</h2>
+		<p class={p}>
+			Datele pe care le introduci rămân ale tale sau ale companiei tale. Stafy le folosește doar pentru a furniza serviciul, așa cum
+			este descris în <a class={a} href={PRIVACY_URL}>Politica de confidențialitate</a>. Le poți exporta oricând din aplicație sau le
+			poți cere pe email.
+		</p>
+
+		<h2 id="proprietate" class={h2}>9. Proprietate intelectuală</h2>
+		<p class={p}>
+			Codul și designul aplicației sunt create de autorul Stafy și sunt protejate de dreptul de autor. Folosirea serviciului nu îți
+			transferă niciun drept asupra lor.
+		</p>
+
+		<h2 id="raspundere" class={h2}>10. Răspundere</h2>
+		<p class={p}>Stafy este o versiune de test, oferită gratuit. De aceea, în măsura în care legea permite, nu răspundem pentru:</p>
+		<ul class={ul}>
+			<li>pierderi cauzate de folosirea calculelor din aplicație fără verificarea lor;</li>
+			<li>perioade în care aplicația nu este disponibilă;</li>
+			<li>date introduse greșit de utilizatori;</li>
+			<li>pierderi indirecte, cum ar fi beneficiile nerealizate.</li>
+		</ul>
+		<p class={p}>Această limitare nu se aplică prejudiciilor cauzate cu intenție sau din culpă gravă.</p>
+
+		<h2 id="incetare" class={h2}>11. Suspendare, închidere și încetare</h2>
+		<ul class={ul}>
+			<li>Îți poți închide contul oricând, cerând ștergerea lui la <a class={a} href={mail}>{CONTACT_EMAIL}</a>.</li>
+			<li>Putem suspenda sau închide un cont care încalcă acești termeni, cu informarea titularului.</li>
+			<li>Serviciul de test poate fi oprit. În acest caz, utilizatorii vor fi anunțați cu cel puțin <span class={b}>15 zile</span> înainte, ca să își poată exporta datele.</li>
+		</ul>
+
+		<h2 id="modificari" class={h2}>12. Modificarea termenilor</h2>
+		<p class={p}>
+			Modificările importante sunt anunțate pe email sau în aplicație înainte de a intra în vigoare. Când e nevoie, ți se va cere să
+			accepți din nou termenii. Versiunea și data din partea de sus arată ultima actualizare.
+		</p>
+
+		<h2 id="lege" class={h2}>13. Legea aplicabilă și nemulțumiri</h2>
+		<p class={p}>
+			Acești termeni sunt guvernați de legea română. Dacă ceva nu funcționează cum te aștepți sau ai o nemulțumire, scrie-ne la
+			<a class={a} href={mail}>{CONTACT_EMAIL}</a> și căutăm împreună o soluție.
+		</p>
+
+		<h2 id="contact" class={h2}>14. Contact</h2>
+		<p class={p}>Pentru orice întrebare despre acești termeni: <a class={a} href={mail}>{CONTACT_EMAIL}</a>.</p>
+	</main>
+
+	<Footer />
+</Layout>

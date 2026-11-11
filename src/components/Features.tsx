@@ -1,5 +1,6 @@
 import { ChartPie, CircleDollarSign, Clock, Download, FileText, History, Mail, Pencil, Plus, Tags, Timer, Users } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
+import { COMMERCIAL_MODE } from '../config'
 import { Reveal, SectionHead, sectionAlt, wrap } from './ui'
 
 const FEATURES: [LucideIcon, string, string][] = [
@@ -45,8 +46,8 @@ export default function Features() {
 
         <div className="rv flex flex-wrap items-center justify-between gap-5 rounded-[20px] bg-ink px-[26px] py-[22px] text-white">
           <div>
-            <b className="block text-[length:clamp(20px,2.2vw,26px)] tracking-[-.02em]">45 de zile gratuit, cu toate funcțiile.</b>
-            <p className="mt-1 text-sm text-slate-300">Până la 30 de oameni în echipă. Fără card.</p>
+            <b className="block text-[length:clamp(20px,2.2vw,26px)] tracking-[-.02em]">{COMMERCIAL_MODE ? '45 de zile gratuit, cu toate funcțiile.' : 'Gratuit în perioada de testare, cu toate funcțiile.'}</b>
+            <p className="mt-1 text-sm text-slate-300">{COMMERCIAL_MODE ? 'Până la 30 de oameni în echipă. Fără card.' : 'Până la 30 de oameni în echipă. Fără card, fără plată.'}</p>
           </div>
           <div className="flex flex-wrap gap-2">
             {BADGES.map(([Icon, t]) => (

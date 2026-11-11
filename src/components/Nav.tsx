@@ -1,6 +1,6 @@
 import { ArrowRight, LogIn, MessageCircle } from 'lucide-react'
 import { useEffect, useState } from 'react'
-import { LOGIN_URL, REGISTER_URL } from '../config'
+import { COMMERCIAL_MODE, LOGIN_URL, REGISTER_URL } from '../config'
 import Brand from './Brand'
 import { btnPrimary, btnQuiet } from './ui'
 import { vars } from './util'
@@ -10,7 +10,7 @@ const LINKS = [
   ['#how-it-works', 'Cum merge'],
   ['#manager', 'Pentru tine'],
   ['#features', 'Funcții'],
-  ['#pricing', 'Prețuri'],
+  ['#pricing', COMMERCIAL_MODE ? 'Prețuri' : 'Cât costă'],
   ['#faq', 'Întrebări'],
 ]
 

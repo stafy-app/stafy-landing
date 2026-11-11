@@ -1,0 +1,178 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Brand from "../components/Brand";
+import Footer from "../components/Footer";
+import { CONTACT_EMAIL, TERMS_URL } from "../config";
+
+const VERSION = "1.0";
+const EFFECTIVE_DATE = "11 noiembrie 2026";
+
+const h2 = "mt-12 mb-4 scroll-mt-24 text-[22px] font-bold tracking-[-.02em] text-ink";
+const p = "mb-4 text-pretty text-[16px] leading-[1.7] text-ink-soft";
+const ul = "mb-4 flex list-disc flex-col gap-2 pl-5 text-[16px] leading-[1.65] text-ink-soft marker:text-ink-muted";
+const b = "font-semibold text-ink";
+const a = "font-semibold text-primary underline decoration-primary/30 underline-offset-4 hover:decoration-primary";
+const th = "border-b border-line px-3 py-2.5 text-left text-[12px] font-semibold uppercase tracking-[.08em] text-ink-muted";
+const td = "border-b border-line-soft px-3 py-2.5 align-top text-[15px] leading-[1.5] text-ink-soft";
+
+const providers = [
+	["Google Firebase", "autentificare și emailuri de cont", "SUA (DPF)", "https://firebase.google.com/support/privacy"],
+	["Neon", "baza de date", "UE", "https://neon.com/privacy-policy"],
+	["Render", "serverul aplicației", "UE", "https://render.com/privacy"],
+	["Resend", "trimiterea emailurilor", "UE", "https://resend.com/legal/privacy-policy"],
+	["Sentry", "raportarea erorilor", "UE", "https://sentry.io/privacy/"],
+	["Vercel", "găzduirea site-ului", "rețea globală (DPF)", "https://vercel.com/legal/privacy-policy"],
+	["Cloudflare R2", "copii de siguranță criptate", "UE", "https://www.cloudflare.com/privacypolicy/"],
+	["Zoho Mail", "căsuța de email " + CONTACT_EMAIL, "UE", "https://www.zoho.com/privacy.html"],
+];
+---
+
+<Layout
+	title="Politica de confidențialitate · Stafy"
+	description="Ce date personale prelucrează Stafy, de ce, cine are acces la ele și ce drepturi ai."
+>
+	<header class="mx-auto flex max-w-[820px] items-center justify-between px-5 pt-8">
+		<Brand href="/" />
+		<a class="text-[14.5px] font-semibold text-ink-soft hover:text-ink" href="/">Înapoi la prima pagină</a>
+	</header>
+
+	<main class="mx-auto max-w-[820px] px-5 pb-24 pt-12">
+		<h1 class="mb-3 text-balance text-[clamp(30px,4.4vw,44px)] font-bold leading-[1.1] tracking-[-.03em] text-ink">
+			Politica de confidențialitate
+		</h1>
+		<p class="mb-10 text-[14px] text-ink-muted">Versiunea {VERSION} · în vigoare din {EFFECTIVE_DATE}</p>
+
+		<p class={p}>
+			Această pagină explică ce date personale prelucrează Stafy, de ce, cine are acces la ele și ce drepturi ai. Se aplică
+			site-ului stafy.ro și aplicației app.stafy.ro și respectă Regulamentul (UE) 2016/679 (GDPR) și legislația română privind
+			protecția datelor.
+		</p>
+
+		<h2 id="operator" class={h2}>1. Cine este operatorul</h2>
+		<p class={p}>
+			Operatorul datelor este <span class={b}>Andrei-Ionuț Țicărat</span>, persoană fizică. Pentru orice solicitare privind datele
+			personale ne poți scrie la <a class={a} href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. Nu este desemnat un responsabil
+			cu protecția datelor (DPO).
+		</p>
+
+		<h2 id="date" class={h2}>2. Ce date prelucrăm</h2>
+		<ul class={ul}>
+			<li><span class={b}>Date de cont:</span> nume, prenume, adresă de email, parolă (păstrată exclusiv criptat, de furnizorul de autentificare), data ultimei autentificări.</li>
+			<li><span class={b}>Date despre organizație:</span> denumirea, orașul și adresa, funcțiile din echipă. Le introduce managerul companiei.</li>
+			<li><span class={b}>Pontaje:</span> ora de început și de sfârșit a fiecărei sesiuni de lucru și tipul activității. Le introduci tu; managerul le poate corecta.</li>
+			<li><span class={b}>Tarife și sume:</span> tarifele orare, bonusurile și sumele calculate pe baza lor. Le introduce managerul companiei, nu persoana la care se referă.</li>
+			<li><span class={b}>Istoricul modificărilor:</span> cine a modificat un pontaj, un tarif sau un bonus, când și care au fost valorile înainte și după.</li>
+			<li><span class={b}>Invitații:</span> adresa de email a persoanei invitate, rolul și funcția propuse.</li>
+			<li><span class={b}>Mesaje prin formularul de contact:</span> nume, email, organizație, mărimea echipei, telefon (opțional) și conținutul mesajului.</li>
+			<li><span class={b}>Abonarea la noutăți:</span> adresa de email.</li>
+			<li><span class={b}>Date tehnice:</span> adresa IP și informații despre browser, înregistrate de furnizorii de autentificare, găzduire și raportare a erorilor în jurnalele lor tehnice.</li>
+		</ul>
+		<p class={p}>
+			Nu prelucrăm CNP-ul, date despre sănătate sau alte categorii speciale de date. Nu cerem și nu stocăm locația ta. Din adresa IP
+			se poate deduce, cel mult, aproximativ zona din care te conectezi.
+		</p>
+
+		<h2 id="scopuri" class={h2}>3. De ce prelucrăm datele și pe ce temei</h2>
+		<ul class={ul}>
+			<li><span class={b}>Funcționarea contului și a aplicației</span> (înregistrare, pontaj, calcule, rapoarte, invitații). Temei: <em>executarea contractului</em>, adică a <a class={a} href={TERMS_URL}>Termenilor și condițiilor</a> acceptate la crearea contului, art. 6 alin. (1) lit. b) GDPR.</li>
+			<li><span class={b}>Răspunsul la mesajele trimise prin formularul de contact.</span> Temei: <em>demersuri făcute la cererea ta, înaintea unui eventual contract</em>, art. 6 alin. (1) lit. b) GDPR.</li>
+			<li><span class={b}>Trimiterea de noutăți despre Stafy pe email.</span> Temei: <em>consimțământul tău</em>, art. 6 alin. (1) lit. a) GDPR. Îl poți retrage oricând, răspunzând cu STOP la orice email primit de la noi; retragerea nu afectează ce s-a făcut înainte.</li>
+			<li><span class={b}>Securitate, prevenirea abuzurilor, remedierea erorilor și copiile de siguranță.</span> Temei: <em>interesul legitim</em> de a menține serviciul sigur și funcțional, art. 6 alin. (1) lit. f) GDPR.</li>
+		</ul>
+		<p class={p}>
+			În perioada de testare, orele și tarifele din Stafy servesc exclusiv verificării aplicației. Ele nu sunt folosite de angajator
+			pentru salarizare.
+		</p>
+
+		<h2 id="acces" class={h2}>4. Cine are acces la date</h2>
+		<p class={p}>
+			În aplicație, managerii unei companii văd pontajele, tarifele, bonusurile și istoricul modificărilor membrilor echipei lor.
+			Administratorul Stafy are acces în scop de suport și mentenanță.
+		</p>
+		<p class={p}>Pentru a funcționa, Stafy folosește următorii furnizori. Fiecare primește doar datele necesare rolului său:</p>
+		<div class="mb-4 overflow-x-auto">
+			<table class="w-full min-w-[560px] border-collapse">
+				<thead>
+					<tr><th class={th}>Furnizor</th><th class={th}>Rol</th><th class={th}>Regiune</th><th class={th}>Confidențialitate</th></tr>
+				</thead>
+				<tbody>
+					{providers.map(([name, role, region, url]) => (
+						<tr>
+							<td class={`${td} font-semibold text-ink`}>{name}</td>
+							<td class={td}>{role}</td>
+							<td class={td}>{region}</td>
+							<td class={td}><a class={a} href={url} target="_blank" rel="noopener">politică</a></td>
+						</tr>
+					))}
+				</tbody>
+			</table>
+		</div>
+		<p class={p}>
+			Datele nu sunt vândute și nu sunt închiriate. Lista furnizorilor poate fi actualizată odată cu evoluția serviciului; orice
+			schimbare apare pe această pagină.
+		</p>
+
+		<h2 id="pastrare" class={h2}>5. Cât timp păstrăm datele</h2>
+		<ul class={ul}>
+			<li><span class={b}>Datele contului</span> (profil, pontaje, tarife, bonusuri, istoric): cât timp contul există. La cererea ta, le ștergem în cel mult 30 de zile.</li>
+			<li><span class={b}>Copiile de siguranță:</span> se șterg automat în cel mult 13 luni. Nu sunt folosite pentru a readuce date a căror ștergere ai cerut-o.</li>
+			<li><span class={b}>Mesajele din formularul de contact:</span> cel mult 24 de luni de la ultimul mesaj.</li>
+			<li><span class={b}>Adresa de email pentru noutăți:</span> până la retragerea consimțământului.</li>
+			<li><span class={b}>Jurnalele tehnice ale furnizorilor</span> (inclusiv adresa IP): conform politicilor fiecărui furnizor; în cazul Firebase, câteva săptămâni.</li>
+		</ul>
+
+		<h2 id="transferuri" class={h2}>6. Transferuri în afara Uniunii Europene</h2>
+		<p class={p}>
+			Datele aplicației sunt stocate în Uniunea Europeană. Autentificarea, asigurată de Google Firebase, se procesează în Statele
+			Unite, iar site-ul poate fi servit prin rețeaua globală a furnizorului Vercel. Aceste transferuri au la bază Cadrul UE-SUA
+			privind protecția datelor (Data Privacy Framework), la care furnizorii sunt certificați, și, după caz, clauzele contractuale
+			standard aprobate de Comisia Europeană. Detalii despre garanții se pot obține la
+			<a class={a} href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
+		</p>
+
+		<h2 id="drepturi" class={h2}>7. Drepturile tale</h2>
+		<p class={p}>Potrivit GDPR, ai dreptul:</p>
+		<ul class={ul}>
+			<li>de acces la datele tale și de a primi o copie;</li>
+			<li>la rectificarea datelor inexacte;</li>
+			<li>la ștergerea datelor;</li>
+			<li>la restricționarea prelucrării;</li>
+			<li>de opoziție față de prelucrarea bazată pe interesul legitim;</li>
+			<li>la portabilitatea datelor, într-un format structurat și ușor de citit automat;</li>
+			<li>de a-ți retrage oricând consimțământul, pentru prelucrările bazate pe acesta.</li>
+		</ul>
+		<p class={p}>
+			Solicitările se trimit la <a class={a} href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. Răspundem în cel mult o lună de
+			la primire.
+		</p>
+		<p class={p}>
+			Ai, de asemenea, dreptul de a depune o plângere la <span class={b}>Autoritatea Națională de Supraveghere a Prelucrării Datelor
+			cu Caracter Personal (ANSPDCP)</span>: B-dul G-ral. Gheorghe Magheru 28-30, Sector 1, cod poștal 010336, București ·
+			<a class={a} href="mailto:anspdcp@dataprotection.ro">anspdcp@dataprotection.ro</a> ·
+			<a class={a} href="https://www.dataprotection.ro" target="_blank" rel="noopener">www.dataprotection.ro</a>.
+		</p>
+
+		<h2 id="obligatoriu" class={h2}>8. Date obligatorii și decizii automate</h2>
+		<p class={p}>
+			Numele și adresa de email sunt necesare pentru crearea contului; fără ele aplicația nu poate fi folosită. Telefonul din
+			formularul de contact este opțional, iar abonarea la noutăți este facultativă.
+		</p>
+		<p class={p}>Stafy nu ia decizii automate cu efecte asupra ta și nu creează profiluri.</p>
+
+		<h2 id="cookies" class={h2}>9. Cookies și stocare în browser</h2>
+		<p class={p}>Site-ul stafy.ro nu folosește cookies și nu încarcă instrumente de analiză sau publicitate.</p>
+		<p class={p}>
+			Aplicația app.stafy.ro păstrează în browser doar informațiile strict necesare funcționării: sesiunea de autentificare, tema
+			aleasă, starea meniului lateral, modul de lucru (companie sau personal) și un mesaj temporar afișat la autentificare. Pentru
+			acestea legea nu cere acordul tău. Dacă vor fi adăugate vreodată instrumente de analiză, acordul îți va fi cerut în prealabil.
+		</p>
+
+		<h2 id="modificari" class={h2}>10. Modificări</h2>
+		<p class={p}>
+			Orice modificare importantă a acestei politici este anunțată pe email sau în aplicație înainte de a intra în vigoare. Versiunea
+			și data din partea de sus arată ultima actualizare.
+		</p>
+	</main>
+
+	<Footer />
+</Layout>

@@ -1,5 +1,5 @@
 import { ArrowRight, Check } from 'lucide-react'
-import { CONTACT_EMAIL } from '../config'
+import { COMMERCIAL_MODE, CONTACT_EMAIL } from '../config'
 import { Reveal, SectionHead, sectionIntoBand, wrap } from './ui'
 
 const ALL = ['Toate cele 8 funcții', 'Manageri și instructori']
@@ -25,6 +25,18 @@ const PLANS: Plan[] = [
 ]
 
 export default function Pricing() {
+  if (!COMMERCIAL_MODE) {
+    // Short text-only block right after the Features band: tight padding so it doesn't float in empty space.
+    return (
+      <section id="pricing" className={`${sectionIntoBand} !py-[clamp(32px,4vw,56px)]`}>
+        <div className={wrap}>
+          <SectionHead k="Cât costă" title="Gratuit, cât timp suntem în testare." flush>
+            <p>Stafy este acum o versiune de test, gratuită. Ai toate funcțiile, fără card și fără nicio plată. La înscriere primești 45 de zile, iar după aceea îți prelungim accesul gratuit, la cerere. Dacă vor apărea vreodată planuri plătite, te anunțăm din timp și nu trecem pe nimeni automat pe plată.</p>
+          </SectionHead>
+        </div>
+      </section>
+    )
+  }
   return (
     <section id="pricing" className={`${sectionIntoBand} !pb-[clamp(56px,6vw,88px)]`}>
       <div className={wrap}>

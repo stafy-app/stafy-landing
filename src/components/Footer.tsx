@@ -1,11 +1,12 @@
-import { CONTACT_EMAIL, LOGIN_URL, SHOW_COMPANY_INFO, SHOW_PILOT_PROGRAM, UNDER_CONSTRUCTION_URL as WIP } from '../config'
+import { COMMERCIAL_MODE, CONTACT_EMAIL, LOGIN_URL, PRIVACY_URL, SHOW_COMPANY_INFO, TERMS_URL, SHOW_PILOT_PROGRAM, UNDER_CONSTRUCTION_URL as WIP } from '../config'
 import Brand from './Brand'
 import { wrap } from './ui'
 
 const COLS = [
-  ['Produs', [['#how-it-works', 'Cum merge'], ['#manager', 'Pentru tine'], ['#features', 'Funcții'], ['#pricing', 'Prețuri'], ['#faq', 'Întrebări frecvente'], [LOGIN_URL, 'Intră în cont']]],
-  ['Companie', [['#final', SHOW_PILOT_PROGRAM ? 'Program pilot' : 'Anunță-mă la lansare'], [`mailto:${CONTACT_EMAIL}`, 'Contact']]],
-  ['Legal', [[WIP, 'Termeni și condiții'], [WIP, 'Politica de confidențialitate'], [WIP, 'Politica de cookies'], [WIP, 'Acord de prelucrare date (DPA)'], [WIP, 'Drepturile tale GDPR']]],
+  // Section links are root-anchored ("/#…") so the footer also works on the legal pages.
+  ['Produs', [['/#how-it-works', 'Cum merge'], ['/#manager', 'Pentru tine'], ['/#features', 'Funcții'], ['/#pricing', COMMERCIAL_MODE ? 'Prețuri' : 'Cât costă'], ['/#faq', 'Întrebări frecvente'], [LOGIN_URL, 'Intră în cont']]],
+  ['Companie', [['/#final', SHOW_PILOT_PROGRAM ? 'Program pilot' : 'Încearcă gratuit'], [`mailto:${CONTACT_EMAIL}`, 'Contact']]],
+  ['Legal', [[TERMS_URL, 'Termeni și condiții'], [PRIVACY_URL, 'Politica de confidențialitate'], [`${PRIVACY_URL}#cookies`, 'Politica de cookies'], ...(COMMERCIAL_MODE ? [[WIP, 'Acord de prelucrare date (DPA)']] : []), [`${PRIVACY_URL}#drepturi`, 'Drepturile tale GDPR']]],
 ] as const
 
 const anpc =
@@ -17,7 +18,7 @@ export default function Footer() {
       <div className={wrap}>
         <div className="grid grid-cols-[minmax(0,1.4fr)_repeat(3,minmax(0,1fr))] gap-x-8 gap-y-10 pb-12 max-[860px]:grid-cols-2">
           <div className="max-[860px]:col-span-full">
-            <Brand light />
+            <Brand href="/#top" light />
             <p className="my-4 max-w-[320px] text-[14.5px] leading-[1.6] text-white/60">
               Pontaj pe oră pentru școli și centre cu instructori. Tarife pe om și pe activitate, rapoarte gata la final de lună.
             </p>
@@ -37,16 +38,19 @@ export default function Footer() {
         <div className="flex flex-wrap items-center justify-between gap-x-7 gap-y-4 border-t border-white/10 pt-6 text-[12.5px] text-white/45">
           <div className="flex min-w-0 flex-1 flex-wrap gap-x-3.5 gap-y-1.5 [&>span]:whitespace-nowrap">
             <span>© 2026 Stafy</span>
+            {!COMMERCIAL_MODE && <span>Versiune de test · gratuită</span>}
             {SHOW_COMPANY_INFO && (
               <>
                 <span>[Denumire firmă SRL]</span><span>CUI [—]</span><span>Reg. Com. [—]</span>
               </>
             )}
           </div>
-          <div className="flex flex-wrap gap-2.5">
-            <a className={anpc} href="https://anpc.ro/ce-este-sal/" target="_blank" rel="noopener">ANPC · SAL</a>
-            <a className={anpc} href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">SOL · litigii online</a>
-          </div>
+          {COMMERCIAL_MODE && (
+            <div className="flex flex-wrap gap-2.5">
+              <a className={anpc} href="https://anpc.ro/ce-este-sal/" target="_blank" rel="noopener">ANPC · SAL</a>
+              <a className={anpc} href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">SOL · litigii online</a>
+            </div>
+          )}
         </div>
       </div>
     </footer>

@@ -1,3 +1,4 @@
+import { COMMERCIAL_MODE } from '../config'
 import { Reveal, SectionHead, sectionFromBand, wrap } from './ui'
 
 const ITEMS = [
@@ -5,7 +6,9 @@ const ITEMS = [
   ['O vor folosi instructorii?', 'Da, și nu au nimic de instalat: pontează din browser, de pe telefon, în 60 de secunde. Câștigă și ei, pentru că își văd orele și istoricul oricând, fără să mai întrebe pe nimeni.'],
   ['Dacă cineva greșește ora la pontaj?', 'Managerul corectează ora de start sau de stop. Instructorul vede marcajul „Modificat de …”, iar schimbarea rămâne în jurnal.'],
   ['Ce se întâmplă dacă schimbăm un tarif?', 'Tariful nou se aplică de acum înainte. Pontajele deja făcute rămân la tariful de atunci, deci rapoartele vechi nu se schimbă.'],
-  ['Ce se întâmplă după cele 45 de zile gratuite?', 'Alegeți un plan. Dacă nu, contul trece în modul doar-citire: pontajul merge în continuare, iar rapoartele rămân deschise. Nu se pierde nicio oră.'],
+  COMMERCIAL_MODE
+    ? ['Ce se întâmplă după cele 45 de zile gratuite?', 'Alegeți un plan. Dacă nu, contul trece în modul doar-citire: pontajul merge în continuare, iar rapoartele rămân deschise. Nu se pierde nicio oră.']
+    : ['Ce se întâmplă după cele 45 de zile?', 'Ne scrieți și vă prelungim accesul, tot gratuit. Dacă nu, contul trece în modul doar-citire: pontajul merge în continuare, iar rapoartele rămân deschise. Nu se pierde nicio oră.'],
   ['Noi nu suntem școală de programare. Merge și la noi?', 'Da, dacă vă plătiți oamenii pe oră, cu tarife diferite pe tip de activitate. Scrieți-ne și vă spunem sincer dacă vi se potrivește.'],
 ]
 

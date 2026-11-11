@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { APP_URL, CONTACT_EMAIL } from '../src/config'
+import { APP_URL, COMMERCIAL_MODE, CONTACT_EMAIL } from '../src/config'
 import { vars } from '../src/components/util'
 
 describe('config', () => {
@@ -9,6 +9,10 @@ describe('config', () => {
 
   it('CONTACT_EMAIL looks like an email', () => {
     expect(CONTACT_EMAIL).toMatch(/^[^@\s]+@[^@\s]+\.[^@\s]+$/)
+  })
+
+  it('COMMERCIAL_MODE is off (free test phase copy)', () => {
+    expect(COMMERCIAL_MODE).toBe(false)
   })
 })
 
