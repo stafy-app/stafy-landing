@@ -4,12 +4,27 @@ import "../styles/global.css";
 interface Props {
 	title?: string;
 	description?: string;
+	/** Keep the page out of search results (placeholder pages, 404). Also excluded from the sitemap in astro.config.mjs. */
+	noindex?: boolean;
 }
 
 const {
 	title = "Stafy: finalul de lună, fără calcule de mână",
 	description = "Pontaj pe oră pentru școli și centre cu instructori. Tarife pe om și pe activitate, rapoarte PDF gata la final de lună.",
+	noindex = false,
 } = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const ogImage = new URL("/og.png", Astro.site).href;
+const isHome = Astro.url.pathname === "/";
+// WebSite only: no Organization, no offers, no personal name (the landing is non-commercial).
+const websiteJsonLd = JSON.stringify({
+	"@context": "https://schema.org",
+	"@type": "WebSite",
+	name: "Stafy",
+	url: new URL("/", Astro.site).href,
+	inLanguage: "ro",
+});
 ---
 
 <!doctype html>
@@ -23,6 +38,23 @@ const {
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		<meta name="description" content={description} />
+		<meta name="theme-color" content="#ff6b00" />
+		{noindex ? <meta name="robots" content="noindex" /> : <link rel="canonical" href={canonical} />}
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content="Stafy" />
+		<meta property="og:locale" content="ro_RO" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content={canonical} />
+		<meta property="og:image" content={ogImage} />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta property="og:image:alt" content="Stafy: pontaj pe oră pentru școli și centre cu instructori" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={ogImage} />
+		{isHome && <script type="application/ld+json" set:html={websiteJsonLd} />}
 		<script is:inline>
 			if (!matchMedia("(prefers-reduced-motion: reduce)").matches) document.documentElement.classList.add("js");
 		</script>
