@@ -143,8 +143,9 @@ export default function ContactDrawer() {
             <label style={vars({ '--i': 6 })} className={`${rise} flex cursor-pointer items-start gap-2.5 text-[13px] leading-[1.5] text-ink-soft`}>
               <input name="consent" type="checkbox" required className="mt-0.5 size-4 flex-none accent-primary" />
               <span>
-                Sunt de acord să fiu contactat în legătură cu această solicitare. Detalii în{' '}
-                <a href={PRIVACY_URL} target="_blank" rel="noopener" className="font-semibold text-primary underline decoration-primary/30 underline-offset-2">Politica de confidențialitate</a>.
+                Am citit{' '}
+                <a href={PRIVACY_URL} target="_blank" rel="noopener" className="font-semibold text-primary underline decoration-primary/30 underline-offset-2">Politica de confidențialitate</a>{' '}
+                și știu că datele mele sunt folosite pentru a-mi răspunde la această solicitare.
               </span>
             </label>
 
